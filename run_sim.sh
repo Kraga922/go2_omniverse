@@ -23,6 +23,8 @@
 
 
 source /opt/ros/${ROS_DISTRO}/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
 cd IsaacSim-ros_workspaces/${ROS_DISTRO}_ws
 rosdep install --from-paths src --ignore-src -r -y
 colcon build
@@ -38,5 +40,7 @@ eval "$(conda shell.bash hook)"
 conda activate isaaclab
 export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 
+source ${ISAACSIM_PATH}/setup_conda_env.sh
+
 # Run the Python script
-python main.py --robot_amount 2 --robot go2
+python main.py --robot_amount 2 --robot go2 $@
