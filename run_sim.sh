@@ -43,4 +43,5 @@ export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 source ${ISAACSIM_PATH}/setup_conda_env.sh
 
 # Run the Python script
-python main.py --robot_amount 2 --robot go2 $@
+#python main.py --robot_amount 2 --robot go2 $@
+python main.py --robot go2 $@
